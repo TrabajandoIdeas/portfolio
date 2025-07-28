@@ -1,0 +1,16 @@
+{
+  "name": "portfolio",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "ts-standard": "^12.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "setup": "bun run setup.ts"
+  },
+  "private": true,
+  "type": "module"
+}
