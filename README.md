@@ -20,11 +20,11 @@ Each mode should present their own chanllenge, using the same tools and framewor
 
 The list are:
 
-- [] Default: initial mode, just a simple and standard portfolio
-- [] Simple: Minimalist, but trying to emulate the feel of paper.
-- [] Console: This is the first tricky one, made the site works as a console, using commands to navigate thorw it. The bigest challenge here is define the convention to name the commands and how to show previous results without using an SPA approach.
-- [] Rice: Similar to console but it is a linux rice. If you want more context take a look at this [Linux Subreddit](https://www.reddit.com/r/unixporn/) (it isn't porn, it is just a joke).
-- [] P5 Menu: Based on [Persona 5](https://persona.atlus.com/p5r) menu design (the game not the linked site), this mode shows the content with flashy colors and fast and complex animations.
+- [ ] Default: initial mode, just a simple and standard portfolio
+- [ ] Simple: Minimalist, but trying to emulate the feel of paper.
+- [ ] Console: This is the first tricky one, made the site works as a console, using commands to navigate thorw it. The bigest challenge here is define the convention to name the commands and how to show previous results without using an SPA approach.
+- [ ] Rice: Similar to console but it is a linux rice. If you want more context take a look at this [Linux Subreddit](https://www.reddit.com/r/unixporn/) (it isn't porn, it is just a joke).
+- [ ] P5 Menu: Based on [Persona 5](https://persona.atlus.com/p5r) menu design (the game not the linked site), this mode shows the content with flashy colors and fast and complex animations.
 
 ## Thechnologies
 
