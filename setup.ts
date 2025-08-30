@@ -4,7 +4,7 @@ const lineSpliter = /\r?\n/
 const envFile = Bun.file('./.env')
 
 if (await envFile.exists()) {
-  const shouldOverwrite = prompt('The .env file alredy exists.\n Do you want to overwrite it?[y/N]')
+  const shouldOverwrite = prompt('The .env file already exists.\n Do you want to overwrite it? [y/N]')
 
   if (shouldOverwrite?.toLowerCase() !== 'y') {
     console.log('Finishing the process')
@@ -26,7 +26,7 @@ const filledEnvVars = envVarsFile.split(lineSpliter).map((envVar) => {
     return envVar
   }
   if (!newValueAlreadyDisplayed) {
-    console.log('Insert a new falue for:')
+    console.log('Insert a new value for:')
     newValueAlreadyDisplayed = true
   }
 

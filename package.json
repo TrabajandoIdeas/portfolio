@@ -9,8 +9,16 @@
     "typescript": "^5"
   },
   "scripts": {
-    "setup": "bun run setup.ts"
+    "setup": "bun run setup.ts",
+    "build": "bun run index.ts",
+    "dev": "bun run index.ts && bun --watch index.ts"
   },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "bun-plugin-tailwind": "^0.0.15",
+    "react": "19",
+    "react-dom": "19",
+    "tailwindcss": "^4.1.11"
+  }
 }
