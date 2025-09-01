@@ -6,8 +6,6 @@ This project generates its content from markdown files to multiple (WIP) modes o
 
 #### Prerequisites
 
-- Bun installed
-
 #### Steps
 
 1. Run `bun run setup` to configure the project.
@@ -15,10 +13,6 @@ This project generates its content from markdown files to multiple (WIP) modes o
 3. Open `build/index.html` in your browser to view the generated site.
 
 #### Available Scripts
-
-- `bun run setup` - Configure environment variables
-- `bun run build` - Build the static site from markdown files
-- `bun run dev` - Build and watch for changes (development mode)
 
 ## Modes
 
@@ -41,7 +35,7 @@ As mentioned before I want to keep this simple, in terms of how many tools and l
 With all of that in mind this will be my stack:
 
 - Tailwind
-- Bun: I never used it but looks like a good opportunity to try
+- Angular: first time using it, let's see how it goes.
 
 
 ## Other challenges
