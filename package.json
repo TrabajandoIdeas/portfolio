@@ -1,24 +1,16 @@
 {
-  "name": "portfolio",
-  "module": "index.ts",
-  "devDependencies": {
-    "@types/bun": "latest",
-    "ts-standard": "^12.0.2"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "scripts": {
-    "setup": "bun run setup.ts",
-    "build": "bun run index.ts",
-    "dev": "bun run index.ts && bun --watch index.ts"
-  },
-  "private": true,
+  "name": "astro",
   "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
   "dependencies": {
-    "bun-plugin-tailwind": "^0.0.15",
-    "react": "19",
-    "react-dom": "19",
-    "tailwindcss": "^4.1.11"
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.16.0",
+    "tailwindcss": "^4.1.17"
   }
 }
