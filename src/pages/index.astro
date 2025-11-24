@@ -1,10 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import dayjs from "dayjs"
+
+import data from "../data";
+import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
 ---
   
 <Layout>
   <!-- Hero -->
+  <code>
+  {JSON.stringify(data)}
+  </code>
   <!-- Experience -->
+
+  {data.experience.map((item, index) => (
+    <IntermediateItem
+      className='first-line place-self-center'
+      step={index === 0 ? Step.Begin : Step.Middle}
+    />
+    <ExperienceItem
+      title={item.title}
+      description={item.description}
+      fromDate={dayjs(item.fromDate)}
+      toDate={dayjs(item.toDate)}
+      className="my-6"
+    />
+  ))}
+  <IntermediateItem
+    className='first-line place-self-center'
+    step={Step.End}
+  />
+  <ExperienceItem
+    title='Maybe you'
+    description="Send nudes"
+    className="my-6"
+  />
+  
   <!-- Projects -->
+
+  
+  <!-- Skills -->
   <!-- Contact -->
 </Layout>

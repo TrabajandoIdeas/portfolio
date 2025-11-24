@@ -6,7 +6,7 @@
   --font-merriweather: "Merriweather", serif;
   --font-code: "Fira Code", monospace;
 
-  --color-*: initil;
+  --color-*: initial;
   --color-white:    oklch(0.9583 0.0111 89.72);
   --color-grey:     oklch(0.3882 0.0127 57.91);
   --color-black:    oklch(0.2669 0.0163 326.02);
@@ -16,4 +16,34 @@
   --color-rust-l:   oklch(0.6571 0.17031250000000003 41);
   --color-rust-m:   oklch(0.5222 0.13437500000000002 41);
   --color-rust-d:   oklch(0.3608 0.09375000000000001 41);
+
+  --color-transparent-rust-l:   oklch(0.6571 0.17031250000000003 41 / 0%);
+}
+
+body {
+  @apply font-lato text-black;
+}
+
+.layout-container {
+  display: grid;
+  grid-template-columns: minmax(1rem, auto) repeat(7, minmax(0, 7.25rem)) minmax(1rem, auto);
+
+  @apply gap-x-4 md:gap-x-8 lg:gap-x-12 xl:gap-x-16;
+}
+
+.layout-container > * {
+  grid-column: 2 / span 7;
+}
+
+.layout-container > .first-line {
+  grid-column: 2 / span 1;
+}
+
+.layout-container > .full-size {
+  grid-column: 1 / span 9;
+}
+
+.border-gradient-rusty {
+  border-image-source: linear-gradient(to right, var(--color-rust-m) 0%, var(--color-rust-l) 8%, var(--color-transparent-rust-l) 36%);
+  border-image-slice: 1;
 }

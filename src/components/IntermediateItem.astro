@@ -1,0 +1,48 @@
+---
+export enum Step {
+  Begin,
+  Middle,
+  End
+}
+
+interface Props {
+  step: Step
+  className?: string;
+}
+
+function stepGradient(step: Step) {
+  switch (step) {
+    case Step.Begin:
+      return "begin-gradient";
+    case Step.Middle:
+      return "middle-gradient";
+    case Step.End:
+      return "end-gradient";
+    default:
+      throw new Error("Value passed is not a valid gradient step")
+  }
+}
+
+const { step, className } = Astro.props
+---
+
+<svg width="12" height="77" viewBox="0 0 12 77" fill="none" xmlns="http://www.w3.org/2000/svg" class={className}>
+  <defs>
+    <linearGradient id="begin-gradient" x1="5.2735" y1="64" x2="5.2735" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#AB4A23"/>
+      <stop offset="0.120192" stop-color="#E46632"/>
+      <stop offset="0.793269" stop-color="#E46632" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="middle-gradient" x1="5.2735" y1="5.7735" x2="5.2735" y2="77.7735" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#AB4A23"/>
+      <stop offset="0.524038" stop-color="#E46632"/>
+      <stop offset="1" stop-color="#AB4A23"/>
+    </linearGradient>
+    <linearGradient id="end-gradient" x1="5.2735" y1="5.77356" x2="5.2735" y2="77.7736" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#AB4A23"/>
+      <stop offset="0.721154" stop-color="#E46632"/>
+      <stop offset="1" stop-color="#E4A032"/>
+    </linearGradient>
+  </defs>
+  <path d="M5.7735 -3.94741e-06L-3.94741e-06 5.7735L5.7735 11.547L11.547 5.7735L5.7735 -3.94741e-06ZM5.7735 76.047L11.547 70.2735L5.7735 64.5L-3.94741e-06 70.2735L5.7735 76.047ZM5.7735 5.7735H4.7735L4.7735 70.2735H5.7735H6.7735L6.7735 5.7735H5.7735Z" fill={`url(#${stepGradient(step)})`}/>
+</svg>

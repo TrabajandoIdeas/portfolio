@@ -1,0 +1,29 @@
+---
+import { Dayjs } from 'dayjs';
+
+interface Props {
+  title: string
+  fromDate?: Dayjs
+  toDate?: Dayjs
+  description: string;
+  className?: string;
+}
+
+const dateFormat = "DD MMM of YYYY"
+
+const {
+  title,
+  fromDate,
+  toDate,
+  description,
+  className = ""
+} = Astro.props;
+
+const rangeDateText = fromDate ? `${fromDate.format(dateFormat)} - ${toDate ? toDate.format(dateFormat) : "Today"}` : ""
+---
+
+<div class:list={["group flex flex-col gap-2 px-2 py-3 border-gradient-rusty border-[3px] font-merriweather", className]}>
+  <h3 class="font-bold text-3xl">{title}</h3>
+  <span class="font-medium text-lg">{rangeDateText}</span>
+  <p class="font-medium text-base">{description}</p>
+</div>
