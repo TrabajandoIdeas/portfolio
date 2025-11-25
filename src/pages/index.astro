@@ -7,6 +7,7 @@ import data from "../data";
 import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SectionTitle from '../components/SectionTitle.astro';
+import SkillsDisplay from '../components/SkillsDisplay.astro';
 ---
   
 <Layout>
@@ -36,24 +37,30 @@ import SectionTitle from '../components/SectionTitle.astro';
   <ExperienceItem
     title='Maybe you'
     description="Send nudes"
-    className="my-6 thinner-size"
+    className="mt-6 mb-64 thinner-size"
   />
   
   <!-- Projects -->
 
   <SectionTitle id="projects" class="mb-20">Projects</SectionTitle>
 
-  <div class="flex flex-wrap justify-evenly gap-4">
+  <div class="flex flex-wrap justify-center xl:justify-start gap-x-5 gap-y-8 mb-64">
     {data.projects.map((project) => 
       <ProjectCard
         {...project}
-        className='lg:mr-auto'
       />
     )}
   </div>
   
   <!-- Skills -->
 
-  
+  <SectionTitle id="skills" class="mb-20">Skills</SectionTitle>
+
+  {data.skills.map((skillgroup) => (
+    <SkillsDisplay
+      className="mb-12"
+      title={skillgroup.title} skillList={skillgroup.skillList} />
+  ))}
+
   <!-- Contact -->
 </Layout>
