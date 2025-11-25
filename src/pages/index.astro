@@ -5,6 +5,8 @@ import dayjs from "dayjs"
 
 import data from "../data";
 import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SectionTitle from '../components/SectionTitle.astro';
 ---
   
 <Layout>
@@ -12,11 +14,11 @@ import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
   <code>
   {JSON.stringify(data)}
   </code>
-  <!-- Experience -->
-
+  <!-- Experience --> 1.2
+  <SectionTitle id="experience" class="thinner-size mb-20">Experience</SectionTitle>
   {data.experience.map((item, index) => (
     <IntermediateItem
-      className='first-line place-self-center'
+      className='second-line place-self-center'
       step={index === 0 ? Step.Begin : Step.Middle}
     />
     <ExperienceItem
@@ -24,22 +26,34 @@ import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
       description={item.description}
       fromDate={dayjs(item.fromDate)}
       toDate={dayjs(item.toDate)}
-      className="my-6"
+      className="my-6 thinner-size"
     />
   ))}
   <IntermediateItem
-    className='first-line place-self-center'
+    className='second-line place-self-center'
     step={Step.End}
   />
   <ExperienceItem
     title='Maybe you'
     description="Send nudes"
-    className="my-6"
+    className="my-6 thinner-size"
   />
   
   <!-- Projects -->
 
+  <SectionTitle id="projects" class="mb-20">Projects</SectionTitle>
+
+  <div class="flex flex-wrap justify-evenly gap-4">
+    {data.projects.map((project) => 
+      <ProjectCard
+        {...project}
+        className='lg:mr-auto'
+      />
+    )}
+  </div>
   
   <!-- Skills -->
+
+  
   <!-- Contact -->
 </Layout>

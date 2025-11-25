@@ -35,8 +35,12 @@ body {
   grid-column: 2 / span 7;
 }
 
-.layout-container > .first-line {
-  grid-column: 2 / span 1;
+.layout-container > .second-line {
+  grid-column: 3 / span 1;
+}
+
+.layout-container > .thinner-size {
+  grid-column: 3 / span 5;
 }
 
 .layout-container > .full-size {
@@ -45,5 +49,10 @@ body {
 
 .border-gradient-rusty {
   border-image-source: linear-gradient(to right, var(--color-rust-m) 0%, var(--color-rust-l) 8%, var(--color-transparent-rust-l) 36%);
+  border-image-slice: 1;
+}
+
+.border-gradient-glow-forest {
+  border-image-source: linear-gradient(to bottom, var(--color-forest-m) 0%, var(--color-forest-l) 27%, var(--color-forest-m));
   border-image-slice: 1;
 }
