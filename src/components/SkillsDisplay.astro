@@ -10,8 +10,9 @@ interface Props {
 const { title, skillList, className } = Astro.props;
 ---
 
-<div class:list={["relative grid grid-cols-4 sm:grid-cols-3 md:grid-cols-5 gap-6 flex-wrap place-items-center py-8 md:py-16 px-7 md:px-14 border-3 border-rust-m border-dashed rounded-2xl", className]}>
-  <h4 class="absolute top-0 translate-y-[calc(-50%-3px)] left-4 bg-white py-2 px-1 font-bold text-xl text-rust-m">{title}</h4>
+<div class:list={["relative grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6 place-items-center p-4 md:px-14 md:py-5 border-gradient-rusty gradient-distance-long bg-linear-to-b border-3 rounded-2xl", className]}>
+  <h4 class="w-16 sm:w-24 py-2 px-1 font-code font-bold text-3xl text-rust-m lowercase">{title}</h4>
+  <div class="col-span-2 md:col-span-3 xl:col-span-4"></div>
   {skillList.map(({ name, Icon }) => (
     <Icon aria-label={name} class="hover:fill-rust-l w-16 h-16 sm:w-24 sm:h-24" />
   ))}

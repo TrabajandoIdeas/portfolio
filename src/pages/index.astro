@@ -8,18 +8,29 @@ import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import SkillsDisplay from '../components/SkillsDisplay.astro';
+import GradientLinkButton from '../components/GradientLinkButton.astro';
 ---
   
 <Layout>
   <!-- Hero -->
-  <code>
-  {JSON.stringify(data)}
-  </code>
+  <div class="h-screen max-w-lg mx-auto flex flex-col items-center justify-center">
+    <h1 class="font-code font-medium text-[min(4.5rem,11.25vw)] tracking-[-0.08em] leading-none">Diego Pousa</h1>
+    <h1 class="ml-1.5 -mt-1 sm:-mt-2.5 font-bold text-[min(3rem,7.5vw)] tracking-[-0.02em] leading-none">Frontend Developer</h1>
+
+    <p class="my-28 font-bold text-2xl tracking-tight text-center">Transforming problems into solutions, cleaning the path for your ideas to became products</p>
+
+    <div class="flex gap-6">
+      <GradientLinkButton href="https://github.com/TrabajandoIdeas" target="_blank">Github</GradientLinkButton>
+      <GradientLinkButton href="https://www.linkedin.com/in/diegopousa/" target="_blank">LinkedIn</GradientLinkButton>
+      <GradientLinkButton href="mailto:contact@diegopousa.dev" target="_blank">Mail me</GradientLinkButton>
+      <GradientLinkButton href="/CV_Pousa_Diego.pdf" download="CV Pousa Diego">CV Download</GradientLinkButton>
+    </div>
+  </div>
   <!-- Experience --> 1.2
   <SectionTitle id="experience" class="thinner-size mb-20">Experience</SectionTitle>
   {data.experience.map((item, index) => (
     <IntermediateItem
-      className='second-line place-self-center'
+      className='second-line place-self-end lg:place-self-center'
       step={index === 0 ? Step.Begin : Step.Middle}
     />
     <ExperienceItem
@@ -31,7 +42,7 @@ import SkillsDisplay from '../components/SkillsDisplay.astro';
     />
   ))}
   <IntermediateItem
-    className='second-line place-self-center'
+    className='second-line place-self-end lg:place-self-center'
     step={Step.End}
   />
   <ExperienceItem
@@ -54,11 +65,11 @@ import SkillsDisplay from '../components/SkillsDisplay.astro';
   
   <!-- Skills -->
 
-  <SectionTitle id="skills" class="mb-20">Skills</SectionTitle>
+  <SectionTitle id="skills" class="thinner-size mb-20">Skills</SectionTitle>
 
   {data.skills.map((skillgroup) => (
     <SkillsDisplay
-      className="mb-12"
+      className="thinner-size mb-12"
       title={skillgroup.title} skillList={skillgroup.skillList} />
   ))}
 
