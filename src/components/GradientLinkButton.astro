@@ -1,17 +1,32 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 
-type Props = HTMLAttributes<"a">
+export enum ButtonColor {
+  Forest,
+  Rust
+}
 
-const { class: className, ...props } = Astro.props
+interface Props extends HTMLAttributes<"a"> {
+  style?: ButtonColor
+}
+
+function getClassesByStyle(style: ButtonColor) {
+  switch(style) {
+    case ButtonColor.Forest: return "border-forest-d text-forest-d hover:bg-forest-d"
+    case ButtonColor.Rust: return "border-rust-m text-rust-m hover:bg-rust-m"
+  }
+}
+
+const { class: className, style = ButtonColor.Forest, ...props } = Astro.props
 ---
 
 <a
   class:list={[
-    "py-1 px-2 border-3 border-forest-d text-forest-d",
-    "font-bold text-sm sm:text-base md:text-xl tracking-tight leading-5 sm:leading-6 md:leading-7",
-    "rounded-lg font-code text-nowrap text-center",
-    "hover:bg-forest-d hover:text-white transition-colors ease-in",
+    getClassesByStyle(style),
+    "py-1 px-2 border-3 rounded-lg",
+    "text-sm sm:text-base md:text-xl tracking-tight leading-5 sm:leading-6 md:leading-7",
+    "font-bold font-code text-nowrap text-center",
+    "hover:text-white transition-colors ease-in",
     className
   ]}
   {...props}

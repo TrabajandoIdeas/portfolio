@@ -3,7 +3,7 @@
 @theme {
   --font-*: initial;
   --font-lato: "Lato", sans-serif;
-  --font-merriweather: "Merriweather", serif;
+  --font-merriweather: "Lato", sans-serif;/* "Merriweather", serif; */
   --font-code: "Fira Code", monospace;
 
   --color-*: initial;

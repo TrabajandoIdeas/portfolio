@@ -1,0 +1,27 @@
+---
+import type { SvgComponent } from "astro/types";
+
+import SectionTitle from "@/components/SectionTitle.astro";
+import SkillsDisplay from "@/components/SkillsDisplay.astro";
+
+interface SkillData {
+  title: string;
+  skillList: { name: string, Icon: SvgComponent }[]
+}
+
+interface Props {
+  skillGroupList: SkillData[]
+}
+
+const { skillGroupList } = Astro.props;
+---
+
+<SectionTitle id="skills" class="thinner-size mb-20">Skills</SectionTitle>
+
+{skillGroupList.map((skillGroup) => (
+  <SkillsDisplay
+    className="thinner-size mb-12"
+    title={skillGroup.title}
+    skillList={skillGroup.skillList}
+  />
+))}

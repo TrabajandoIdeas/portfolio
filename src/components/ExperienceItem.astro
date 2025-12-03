@@ -5,7 +5,7 @@ interface Props {
   title: string
   fromDate?: Dayjs
   toDate?: Dayjs
-  description: string;
+  description?: string;
   className?: string;
 }
 
@@ -22,8 +22,9 @@ const {
 const rangeDateText = fromDate ? `${fromDate.format(dateFormat)} - ${toDate ? toDate.format(dateFormat) : "Today"}` : ""
 ---
 
-<div class:list={["group flex flex-col gap-2 px-2 py-3 border-gradient-rusty bg-linear-to-r border-3 font-merriweather", className]}>
+<div class:list={["group flex flex-col gap-2 px-2 py-3 md:px-5 md:py-6.5 lg:px-8 lg:py-10 border-gradient-rusty bg-linear-to-r border-3 font-merriweather", className]}>
   <h3 class="font-bold text-xl md:text-3xl tracking-tight leading-7 md:leading-9">{title}</h3>
-  <span class="font-medium text-base md:text-lg leading-6 md:leading-7">{rangeDateText}</span>
-  <p class="font-medium text-sm md:text-base">{description}</p>
+  {rangeDateText && <span class="font-medium text-base md:text-lg leading-6 md:leading-7">{rangeDateText}</span>}
+  {description && <p class="font-medium text-sm md:text-base">{description}</p>}
+  <slot />
 </div>

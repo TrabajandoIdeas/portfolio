@@ -1,14 +1,14 @@
 ---
-import DotsIcon from "../assets/dots.svg";
+import DotsIcon from "@/assets/dots.svg";
 
-import myPhoto from "../assets/me.png";
+import myPhoto from "@/assets/me.png";
 import type { HTMLAttributes } from 'astro/types';
-import MenuGroup from '../components/MenuGroup.astro';
-import LanguajeSelector from '../components/LanguajeSelector.astro';
+import MenuGroup from '@/components/MenuGroup.astro';
+import LanguajeSelector from '@/components/LanguajeSelector.astro';
 
 type Props = HTMLAttributes<"nav">;
 ---
-<script src="../scripts/dropdownMenu.ts" />
+<script src="@/scripts/dropdownMenu.ts" />
 <nav class:list={["fixed top-0 left-0 w-screen z-50 layout-container bg-grey items-center text-white py-4", Astro.props.class]} {...Astro.props}>
   <div class="flex items-center gap-4">
     <img class="w-12 aspect-square object-cover rounded-full" alt="My Photo" {...myPhoto} />

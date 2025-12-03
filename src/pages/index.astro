@@ -1,90 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import dayjs from "dayjs"
+import Layout from '@/layouts/Layout.astro';
 
-import Navbar from '../containers/Navbar.astro';
+import Navbar from '@/containers/Navbar.astro';
 
-import IntermediateItem, { Step } from '../components/IntermediateItem.astro';
-import ExperienceItem from '../components/ExperienceItem.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import SectionTitle from '../components/SectionTitle.astro';
-import SkillsDisplay from '../components/SkillsDisplay.astro';
-import GradientLinkButton from '../components/GradientLinkButton.astro';
+import SectionTitle from '@/components/SectionTitle.astro';
+import SkillsDisplay from '@/components/SkillsDisplay.astro';
 
 
-import data from "../data";
-import MenuGroup from '../components/MenuGroup.astro';
-import LanguajeSelector from '../components/LanguajeSelector.astro';
+import data from "@/data";
+import Hero from '@/containers/Hero.astro';
+import ExperienceSection from '@/containers/ExperienceSection.astro';
+import Projects from '@/containers/Projects.astro';
+import SkillSection from '@/containers/SkillSection.astro';
 ---
   
 <Layout>
-  <script src="../scripts/showMenu.ts" />
+  <script src="@/scripts/showMenu.ts" />
   <Navbar id="navbar" class="transition-all duration-500 -translate-y-[calc(100%+28px)]" />
 
-  <!-- Hero -->
-  <header id="hero" class="relative h-[90vh] w-full mx-auto flex flex-col items-center justify-center transition-all duration-500">
-    <div class="absolute top-12 right-0 z-10">
-      <MenuGroup />
-      <LanguajeSelector />
-    </div>
-    <h1 class="font-code font-medium text-[min(4.5rem,11.25vw)] tracking-[-0.08em] leading-none">Diego Pousa</h1>
-    <h1 class="ml-1.5 -mt-1 sm:-mt-2.5 font-bold text-[min(3rem,7.5vw)] tracking-[-0.02em] leading-none">Frontend Developer</h1>
-
-    <p class="max-w-sm md:max-w-lg mt-18 mb-16 md:my-28 font-bold text-lg md:text-2xl tracking-tight text-center">Transforming problems into solutions, cleaning the path for your ideas to became products</p>
-
-    <div class="flex gap-6 flex-wrap justify-center *:flex-1 max-w-lg">
-      <GradientLinkButton href="https://github.com/TrabajandoIdeas" target="_blank">Github</GradientLinkButton>
-      <GradientLinkButton href="https://www.linkedin.com/in/diegopousa/" target="_blank">LinkedIn</GradientLinkButton>
-      <GradientLinkButton href="mailto:contact@diegopousa.dev" target="_blank">Mail me</GradientLinkButton>
-      <GradientLinkButton href="/CV_Pousa_Diego.pdf" download="CV Pousa Diego">CV Download</GradientLinkButton>
-    </div>
-  </header>
-  <!-- Experience -->
-  <SectionTitle id="experience" class="thinner-size mb-8 lg:mb-20">Experience</SectionTitle>
-  {data.experience.map((item, index) => (
-    <IntermediateItem
-      className='second-line place-self-end lg:place-self-center'
-      step={index === 0 ? Step.Begin : Step.Middle}
-    />
-    <ExperienceItem
-      title={item.title}
-      description={item.description}
-      fromDate={dayjs(item.fromDate)}
-      toDate={dayjs(item.toDate)}
-      className="my-6 thinner-size"
-    />
-  ))}
-  <IntermediateItem
-    className='second-line place-self-end lg:place-self-center'
-    step={Step.End}
-  />
-  <ExperienceItem
-    title='Maybe you'
-    description="Send nudes"
-    className="mt-6 mb-64 thinner-size"
+  <Hero />
+  
+  <ExperienceSection
+    experienceList={data.experience}
+    lastItem={{
+      title: "Maybe you",
+      description: "I exited to start transforming your ideas into real products"
+    }}
   />
   
-  <!-- Projects -->
-  {data.projects.length > 0 && (  <SectionTitle id="projects" class="mb-20">Projects</SectionTitle>
-
-    <div class="flex flex-wrap justify-center lg:justify-between gap-x-5 gap-y-8 mb-64">
-      {data.projects.map((project) => 
-        <ProjectCard
-          {...project}
-        />
-      )}
-    </div>)
-  }
+  
+  {data.projects.length > 0 && <Projects projectList={data.projects} />}
   
   <!-- Skills -->
 
-  <SectionTitle id="skills" class="thinner-size mb-20">Skills</SectionTitle>
-
-  {data.skills.map((skillgroup) => (
-    <SkillsDisplay
-      className="thinner-size mb-12"
-      title={skillgroup.title} skillList={skillgroup.skillList} />
-  ))}
+  <SkillSection skillGroupList={data.skills} />
 
   <!-- Contact -->
 </Layout>

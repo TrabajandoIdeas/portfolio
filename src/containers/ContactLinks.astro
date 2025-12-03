@@ -1,0 +1,15 @@
+---
+import GradientLinkButton, { ButtonColor } from "@/components/GradientLinkButton.astro";
+
+interface Props {
+  style?: ButtonColor
+  class?: string
+}
+---
+
+<div class:list={["flex gap-6 flex-wrap justify-center *:flex-1 max-w-lg", Astro.props.class]}>
+  <GradientLinkButton style={Astro.props.style} href="https://github.com/TrabajandoIdeas" target="_blank">Github</GradientLinkButton>
+  <GradientLinkButton style={Astro.props.style} href="https://www.linkedin.com/in/diegopousa/" target="_blank">LinkedIn</GradientLinkButton>
+  <GradientLinkButton style={Astro.props.style} href="mailto:contact@diegopousa.dev" target="_blank">Mail me</GradientLinkButton>
+  <GradientLinkButton style={Astro.props.style} href="/CV_Pousa_Diego.pdf" download="CV Pousa Diego">CV Download</GradientLinkButton>
+</div>

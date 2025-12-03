@@ -1,0 +1,51 @@
+---
+import ExperienceItem from "@/components/ExperienceItem.astro";
+import IntermediateItem, { Step } from "@/components/IntermediateItem.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+import type { Dayjs } from "dayjs";
+import dayjs from "dayjs";
+import ContactLinks from "./ContactLinks.astro";
+import { ButtonColor } from "@/components/GradientLinkButton.astro";
+
+interface ExperienceData {
+  title: string,
+  fromDate?: Dayjs,
+  toDate?: Dayjs,
+  description?: string,
+  longDescription?: string
+}
+
+interface Props {
+  experienceList: ExperienceData[];
+  lastItem: ExperienceData
+}
+
+const { experienceList, lastItem } = Astro.props;
+---
+<SectionTitle id="experience" class="thinner-size mb-8 lg:mb-20">Experience</SectionTitle>
+
+{experienceList.map((item, index) => (
+  <IntermediateItem
+    className='second-line place-self-end lg:place-self-center'
+    step={index === 0 ? Step.Begin : Step.Middle}
+  />
+  <ExperienceItem
+    title={item.title}
+    description={item.description}
+    fromDate={dayjs(item.fromDate)}
+    toDate={dayjs(item.toDate)}
+    className="my-6 thinner-size"
+  />
+))}
+
+<IntermediateItem
+  className='second-line place-self-end lg:place-self-center'
+  step={Step.End}
+/>
+<ExperienceItem
+  title={lastItem.title}
+  className="mt-6 mb-64 thinner-size"
+  description={lastItem.description}
+>
+  <ContactLinks style={ButtonColor.Rust} class="mt-4 md:mt-8 lg:mt-12" />
+</ExperienceItem>

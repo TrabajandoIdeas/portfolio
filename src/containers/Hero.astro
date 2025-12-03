@@ -1,0 +1,18 @@
+---
+import LanguajeSelector from "@/components/LanguajeSelector.astro";
+import MenuGroup from "@/components/MenuGroup.astro";
+import ContactLinks from "./ContactLinks.astro";
+---
+
+<header id="hero" class="relative h-[90vh] w-full mx-auto flex flex-col items-center justify-center transition-all duration-500">
+  <div class="absolute top-12 right-0 z-10">
+    <MenuGroup />
+    <LanguajeSelector />
+  </div>
+  <h1 class="font-code font-medium text-[min(4.5rem,11.25vw)] tracking-[-0.08em] leading-none">Diego Pousa</h1>
+  <h1 class="ml-1.5 -mt-1 sm:-mt-2.5 font-bold text-[min(3rem,7.5vw)] tracking-[-0.02em] leading-none">Frontend Developer</h1>
+
+  <p class="max-w-sm md:max-w-lg mt-18 mb-16 md:my-28 font-bold text-lg md:text-2xl tracking-tight text-center">Transforming problems into solutions, cleaning the path for your ideas to became products</p>
+
+  <ContactLinks />
+</header>

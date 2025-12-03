@@ -1,0 +1,27 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import SectionTitle from "@/components/SectionTitle.astro";
+
+interface ProjectData {
+  name: string;
+  description: string;
+  technologies: string[];
+}
+
+interface Props {
+  projectList: ProjectData[]
+}
+
+const { projectList } = Astro.props;
+---
+
+<SectionTitle id="projects" class="mb-20">Projects</SectionTitle>
+
+<div class="flex flex-wrap justify-center lg:justify-between gap-x-5 gap-y-8 mb-64">
+  {projectList.map((project) => 
+    <ProjectCard
+      {...project}
+    />
+  )}
+</div>
+  
