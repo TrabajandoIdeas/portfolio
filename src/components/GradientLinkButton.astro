@@ -6,6 +6,15 @@ type Props = HTMLAttributes<"a">
 const { class: className, ...props } = Astro.props
 ---
 
-<a class:list={["py-1 px-2 border-3 border-forest-d text-forest-d font-bold text-xl tracking-tight leading-7 rounded-lg font-code text-nowrap hover:bg-forest-d hover:text-white",className]} {...props}>
+<a
+  class:list={[
+    "py-1 px-2 border-3 border-forest-d text-forest-d",
+    "font-bold text-sm sm:text-base md:text-xl tracking-tight leading-5 sm:leading-6 md:leading-7",
+    "rounded-lg font-code text-nowrap text-center",
+    "hover:bg-forest-d hover:text-white transition-colors ease-in",
+    className
+  ]}
+  {...props}
+>
   <slot />
 </a>

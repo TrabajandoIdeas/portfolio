@@ -19,17 +19,14 @@ import Ruby from "./assets/backend/ruby.svg"
 import Rails from "./assets/backend/rails.svg"
 
 export default {
-  experience: (new Array(4)).fill("").map((_, i) => ({
-    title: "Company " + i,
-    fromDate: dayjs().add(i, "days"),
-    toDate: dayjs().add(i, "days"),
-    description: "Nice job :happy: " + i
-  })),
-  projects: (new Array(4)).fill("").map((_, i) =>( {
-    name: "Project " + i,
-    description: "Short description of the project " + i,
-    technologies: (new Array(i)).fill("").map((_, j) => "Tech " + j)
-  })),
+  experience:  [{
+    title: "Freelancer Fullstack Developer",
+    fromDate: dayjs("Nov 2016"),
+    toDate: dayjs("Aug 2019"),
+    description: "Build statics sites, Wordpress sites and multiple apps to improve bussiness process productivity given digital solutions. Also done some work as IT",
+    longDescription: "In this time I worked mostly with Autodetail, a small bussiness"
+  }],
+  projects: [],
   skills: [
     {
       title: "Frontend",

@@ -1,0 +1,36 @@
+---
+import DotsIcon from "../assets/dots.svg";
+
+import myPhoto from "../assets/me.png";
+import type { HTMLAttributes } from 'astro/types';
+import MenuGroup from '../components/MenuGroup.astro';
+import LanguajeSelector from '../components/LanguajeSelector.astro';
+
+type Props = HTMLAttributes<"nav">;
+---
+<script src="../scripts/dropdownMenu.ts" />
+<nav class:list={["fixed top-0 left-0 w-screen z-50 layout-container bg-grey items-center text-white py-4", Astro.props.class]} {...Astro.props}>
+  <div class="flex items-center gap-4">
+    <img class="w-12 aspect-square object-cover rounded-full" alt="My Photo" {...myPhoto} />
+    <h1 class="font-code font-medium text-xl sm:text-2xl md:text-3xl tracking-[-0.08em] leading-none">Diego Pousa</h1>
+    <menu class="hidden md:flex gap-8 ml-auto">
+      <MenuGroup />
+      <LanguajeSelector />
+    </menu>
+    <menu class="flex md:hidden flex-row-reverse items-center relative group ml-auto" data-open="false">
+      <button>
+        <DotsIcon class="w-8 sm:w-10 aspect-square"/>
+      </button>
+      <div
+        role="menu"
+        class="
+          w-max bg-white shadow text-grey rounded-lg
+          absolute top-full -right-2.5 flex flex-col gap-3 items-end min-w-18 invisible translate-y-full opacity-0
+          group-data-[open=true]:translate-y-0 group-data-[open=true]:opacity-100 group-data-[open=true]:visible
+        ">
+        <MenuGroup />
+      </div>
+      <LanguajeSelector />
+    </menu>
+  </div>
+</nav>

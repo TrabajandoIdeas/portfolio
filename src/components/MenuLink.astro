@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+export type Props = HTMLAttributes<"a">;
+---
+
+<a class:list={[
+  "inline-block py-2.5 px-2 font-bold text-base md:text-xl leading-7 tracking-tight hover:text-forest-l glowing-text-shadow hover:text-shadow-lg",
+  Astro.props.class
+]} {...Astro.props}>
+  <slot />
+</a>

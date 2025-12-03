@@ -1,0 +1,22 @@
+---
+import MenuLink from "./MenuLink.astro";
+
+import { languages, languagesLabels }from "../i18n/constants";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+<div class="relative inline-block group/menu-links" tabindex="0" data-open="false">
+  <button class="inline-block py-0.5 sm:py-2.5 px-2 font-bold text-base sm:text-lg md:text-xl leading-7 tracking-tight">{languagesLabels[currentLang]}</button>
+  <div
+    role="menu"
+    class="absolute top-full right-0 flex flex-col gap-3 items-end min-w-18 invisible translate-x-full opacity-0
+      group-data-[open=true]/menu-links:translate-x-0 group-data-[open=true]/menu-links:opacity-100 group-data-[open=true]/menu-links:visible
+      overflow-hidden p-2 text-grey bg-white rounded-lg shadow transition-all duration-200">
+    {languages.map((lang) => 
+      <MenuLink href={getRelativeLocaleUrl(lang, Astro.url.pathname)}>{languagesLabels[lang]}</MenuLink>
+    )}
+  </div>
+</div>

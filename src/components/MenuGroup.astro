@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import MenuLink from "./MenuLink.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<MenuLink href={getRelativeLocaleUrl(currentLang,"/")}>{t('nav.about')}</MenuLink>
+<MenuLink href={getRelativeLocaleUrl(currentLang,"/blog")}>{t('nav.blog')}</MenuLink>
+<MenuLink href={getRelativeLocaleUrl(currentLang,"/create")}>{t('nav.want_a_site')}</MenuLink>
+<!-- <MenuLink href={getRelativeLocaleUrl(lang,"/portfolio")}>{t('nav.want_hire_you')}</MenuLink> -->
+

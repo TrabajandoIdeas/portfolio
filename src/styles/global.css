@@ -57,6 +57,23 @@ body {
   grid-column: 1 / span 9;
 }
 
+@keyframes show-process {
+  from {
+    transform: translateY(-40px);
+  }
+  to {
+    transform: translateY(400px);
+  }
+}
+
+.show-on-scroll {
+  transform: translateY(var(--tw-translate-y));
+  animation: show-process 400ms ease-out both;
+  animation-timeline: scroll(block root);
+
+  view-timeline-inset: -1000px;
+}
+
 .border-gradient-rusty {
   --gradient-distance: 8%;
   border-image-source: linear-gradient(var(--tw-gradient-position, to right), var(--color-rust-m) 0%, var(--color-rust-l) var(--gradient-distance), var(--color-transparent-rust-l) calc(var(--gradient-distance) * 4));
@@ -72,6 +89,13 @@ body {
   border-image-slice: 1;
 }
 
+.glowing-text-shadow:hover {
+  text-shadow: 0px 0px 12px var(--color-forest-m) / 80;
+}
+
+.hide-menu {
+  @apply h-0 opacity-0;
+}
 
 /* Old tries */
 /* .bg-glow-forest {
