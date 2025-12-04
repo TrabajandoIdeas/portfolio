@@ -10,13 +10,14 @@ interface SkillData {
 }
 
 interface Props {
+  title: string;
   skillGroupList: SkillData[]
 }
 
-const { skillGroupList } = Astro.props;
+const { title, skillGroupList } = Astro.props;
 ---
 
-<SectionTitle id="skills" class="thinner-size mb-20">Skills</SectionTitle>
+<SectionTitle id="skills" class="thinner-size mb-20">{title}</SectionTitle>
 
 {skillGroupList.map((skillGroup) => (
   <SkillsDisplay

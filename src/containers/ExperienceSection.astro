@@ -17,12 +17,13 @@ interface ExperienceData {
 
 interface Props {
   experienceList: ExperienceData[];
-  lastItem: ExperienceData
+  lastItem: ExperienceData;
+  title: string;
 }
 
-const { experienceList, lastItem } = Astro.props;
+const { experienceList, lastItem, title } = Astro.props;
 ---
-<SectionTitle id="experience" class="thinner-size mb-8 lg:mb-20">Experience</SectionTitle>
+<SectionTitle id="experience" class="thinner-size mb-8 lg:mb-20">{title}</SectionTitle>
 
 {experienceList.map((item, index) => (
   <IntermediateItem

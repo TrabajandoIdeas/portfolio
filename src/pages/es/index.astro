@@ -3,6 +3,9 @@ import Layout from '@/layouts/Layout.astro';
 
 import Navbar from '@/containers/Navbar.astro';
 
+import SectionTitle from '@/components/SectionTitle.astro';
+import SkillsDisplay from '@/components/SkillsDisplay.astro';
+
 
 import data from "@/data";
 import Hero from '@/containers/Hero.astro';
@@ -15,10 +18,10 @@ import SkillSection from '@/containers/SkillSection.astro';
   <script src="@/scripts/showMenu.ts" />
   <Navbar id="navbar" class="transition-all duration-500 -translate-y-[calc(100%+28px)]" />
 
-  <Hero description="Transforming problems into solutions, cleaning the path for your ideas to became products" />
+  <Hero description="Transformando problemas en soluciones, despejando el camino para que tus ideas se conviertan en productos"  />
   
   <ExperienceSection
-    title="Experience"
+    title="Experiencia"
     experienceList={data.experience}
     lastItem={{
       title: "Maybe you",
@@ -31,7 +34,7 @@ import SkillSection from '@/containers/SkillSection.astro';
   
   <!-- Skills -->
 
-  <SkillSection title="Skills" skillGroupList={data.skills} />
+  <SkillSection title="Habilidades" skillGroupList={data.skills} />
 
   <!-- Contact -->
 </Layout>

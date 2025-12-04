@@ -21,7 +21,7 @@
 }
 
 body {
-  @apply font-lato text-black;
+  @apply font-lato text-black w-screen overflow-x-hidden;
 }
 
 .radial-background {
