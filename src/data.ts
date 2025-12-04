@@ -20,11 +20,20 @@ import Rails from "./assets/backend/rails.svg"
 
 export default {
   experience:  [{
-    title: "Freelancer Fullstack Developer",
+    title: "Freelancer - Fullstack Developer",
     fromDate: dayjs("Nov 2016"),
     toDate: dayjs("Aug 2019"),
     description: "Build statics sites, Wordpress sites and multiple apps to improve bussiness process productivity given digital solutions. Also done some work as IT",
     longDescription: "In this time I worked mostly with Autodetail, a small bussiness"
+  },{
+    title: "Sinaptia - Frontend Developer",
+    fromDate: dayjs("Sep 2019"),
+    toDate: dayjs("Aug 2025"),
+    description: "Sinaptia works primary with Ruby on Rails. I joined as the main frontend specialist, implemented and\
+      maintaining responsive, accessible, and performant UIs using modern JavaScript frameworks (like\
+      React). Led migrations of legacy interfaces, built scalable frontend architectures, and collaborated\
+      closely with backend developers to integrate APIs and optimize data flow. Also contributed to backend\
+      tasks in Ruby on Rails when needed."
   }],
   projects: [],
   skills: [
@@ -94,11 +103,11 @@ export default {
         }
       ]
     },
-    {
-      title: "Others",
-      skillList: [
-
-      ]
-    }
+    // {
+    //   title: "Others",
+    //   skillList: [
+    //     {}
+    //   ]
+    // }
   ]
 }
