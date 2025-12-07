@@ -9,15 +9,16 @@ interface ProjectData {
 }
 
 interface Props {
-  projectList: ProjectData[]
+  projectList: ProjectData[];
+  class?: string;
 }
 
-const { projectList } = Astro.props;
+const { projectList, class: className } = Astro.props;
 ---
 
 <SectionTitle id="projects" class="mb-20">Projects</SectionTitle>
 
-<div class="flex flex-wrap justify-center lg:justify-between gap-x-5 gap-y-8 mb-64">
+<div class:list={["flex flex-wrap justify-center lg:justify-between gap-x-5 gap-y-8", className]}>
   {projectList.map((project) => 
     <ProjectCard
       {...project}

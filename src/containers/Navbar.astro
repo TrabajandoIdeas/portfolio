@@ -5,15 +5,24 @@ import myPhoto from "@/assets/me.png";
 import type { HTMLAttributes } from 'astro/types';
 import MenuGroup from '@/components/MenuGroup.astro';
 import LanguajeSelector from '@/components/LanguajeSelector.astro';
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl } from "@/i18n/utils";
 
 type Props = HTMLAttributes<"nav">;
+
+const currentLang = getLangFromUrl(Astro.url);
+const home = getRelativeLocaleUrl(currentLang,"/");
 ---
 
 <script src="@/scripts/dropdownMenu.ts" />
 <nav class:list={["fixed top-0 left-0 w-screen z-50 layout-container bg-grey items-center text-white py-4", Astro.props.class]} {...Astro.props}>
   <div class="flex items-center gap-4">
-    <img class="w-12 aspect-square object-cover rounded-full" alt="My Photo" {...myPhoto} />
-    <h1 class="font-code font-medium text-xl sm:text-2xl md:text-3xl tracking-[-0.08em] leading-none">Diego Pousa</h1>
+    <a href={home}>
+      <img class="w-12 aspect-square object-cover rounded-full" alt="My Photo" {...myPhoto} />
+    </a>
+    <a href={home}>
+      <h1 class="font-code font-medium text-xl sm:text-2xl md:text-3xl tracking-[-0.08em] leading-none">Diego Pousa</h1>
+    </a>
     <menu class="hidden md:flex gap-8 ml-auto">
       <MenuGroup />
       <LanguajeSelector />

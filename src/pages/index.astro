@@ -3,12 +3,12 @@ import Layout from '@/layouts/Layout.astro';
 
 import Navbar from '@/containers/Navbar.astro';
 
-
-import data from "@/data";
 import Hero from '@/containers/Hero.astro';
 import ExperienceSection from '@/containers/ExperienceSection.astro';
 import Projects from '@/containers/Projects.astro';
 import SkillSection from '@/containers/SkillSection.astro';
+
+import data from "@/data";
 ---
   
 <Layout>
@@ -27,7 +27,7 @@ import SkillSection from '@/containers/SkillSection.astro';
   />
   
   
-  {data.projects.length > 0 && <Projects projectList={data.projects} />}
+  {data.projects.length > 0 && <Projects projectList={data.projects} class="mb-32 md:mb-48" />}
   
   <!-- Skills -->
 

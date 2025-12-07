@@ -2,10 +2,8 @@ import debounce from "debounce";
 
 const SCROLL_HEIGHT_TRIGGER = window.screen.availHeight * 0.4;
 
-console.log(SCROLL_HEIGHT_TRIGGER)
-
 function checkScroll(isOpen:boolean, showOnScroll: HTMLElement, hideOnScroll: HTMLElement): boolean {
-  if (window.scrollY < SCROLL_HEIGHT_TRIGGER) {
+  if (document.body.scrollTop < SCROLL_HEIGHT_TRIGGER) {
     if (!isOpen) {
       showOnScroll.classList.add("-translate-y-[calc(100%+28px)]");
       showOnScroll.classList.remove("translate-y-0");
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   isOpen = checkScroll(isOpen, nav, hero);
 
-  document.addEventListener('scroll', debounce(() => {
+  document.body.addEventListener('scroll', debounce(() => {
     isOpen = checkScroll(isOpen, nav, hero);
   }, 70))
 })
