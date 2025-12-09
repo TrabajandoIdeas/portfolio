@@ -16,12 +16,15 @@
   --color-rust-l:   oklch(0.6571 0.17031250000000003 41);
   --color-rust-m:   oklch(0.5222 0.13437500000000002 41);
   --color-rust-d:   oklch(0.3608 0.09375000000000001 41);
-
   --color-transparent-rust-l:   oklch(0.6571 0.17031250000000003 41 / 0%);
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
-  @apply font-lato text-black w-screen overflow-x-hidden;
+  @apply font-lato text-black h-screen overflow-x-hidden overflow-y-auto pb-20;
 }
 
 .radial-background {
